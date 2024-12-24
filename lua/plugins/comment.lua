@@ -1,4 +1,3 @@
-
 require('Comment').setup()
 
 -- `gcc` - Toggles the current line using linewise comment
