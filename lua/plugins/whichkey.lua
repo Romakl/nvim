@@ -27,8 +27,9 @@ keymap("n", "<leader>tf", "<cmd>NvimTreeFocus<cr>", { desc = "Tree Focus" })
 keymap("n", "<leader>nl", "<cmd>TodoQuickFix<cr>", { desc = "Open Todo List" })
 
 -- Open terminal
-keymap("n", "<leader>s", "<cmd>ToggleTerm<cr>", { desc = "Open Terminal" })
-
+--keymap("n", "<leader>s", "<cmd>ToggleTerm<cr>", { desc = "Open Terminal" })
+-- make height a little bit bigger
+keymap("n", "<leader>s", "<cmd>ToggleTerm size=30<cr>", { desc = "Open Terminal" })
 -- Run Ruff linter
 keymap("n", "<leader>r", "<cmd>Ruff<cr>", { desc = "Run Ruff" })
 
