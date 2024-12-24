@@ -29,4 +29,8 @@ vim.keymap.set('n', '<C-l>', ':BufferLineCloseOthers<CR>', { desc = "Close other
 vim.keymap.set('n', '<leader>nl', ':TodoTelescope<CR>', { desc = "Open TodoList using Leader+nl" })
 
 -- Open a floating terminal using Leader+s
-vim.keymap.set('n', '<leader>s', ':ToggleTerm direction=float<CR>', { desc = "Open a floating terminal using Leader+s" })
+vim.keymap.set('n', '<leader>s', ':1ToggleTerm direction=horizontal size=30<CR>', { desc = "Open a horizontal terminal using Leader+s" })
+
+-- Open 3 terminals using Leader1, Leader2, Leader3
+vim.keymap.set('n', '<leader>2', ':2ToggleTerm direction=horizontal size=30<CR>', { desc = "Open a horizontal terminal using Leader+2" })
+vim.keymap.set('n', '<leader>3', ':3ToggleTerm direction=horizontal size=30<CR>', { desc = "Open a horizontal terminal using Leader+3" })
