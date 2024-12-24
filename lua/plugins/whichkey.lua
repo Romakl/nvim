@@ -2,43 +2,55 @@ local wk = require("which-key")
 
 wk.register({
     -- Find group
-    { "<leader>f", group = "Find" },
-    { "<leader>ff", desc = "Find File" },
-    { "<leader>ft", desc = "Find Text" },
-    { "<leader>fb", desc = "Find Buffer" },
-    { "<leader>fh", desc = "Find Help" },
+    f = {
+        name = "Find", -- Group name
+        f = { "<cmd>Telescope find_files<cr>", "Find File" },
+        t = { "<cmd>Telescope live_grep<cr>", "Find Text" },
+        b = { "<cmd>Telescope buffers<cr>", "Find Buffer" },
+        h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+    },
 
     -- Git group
-    { "<leader>g", group = "Git" },
-    { "<leader>gb", desc = "Open Branches" },
-    { "<leader>gc", desc = "Open Commits" },
-    { "<leader>gs", desc = "Open Status" },
+    g = {
+        name = "Git",
+        b = { "<cmd>GitBranches<cr>", "Open Branches" },
+        c = { "<cmd>GitCommits<cr>", "Open Commits" },
+        s = { "<cmd>GitStatus<cr>", "Open Status" },
+    },
 
     -- Diagnostics
-    { "<leader>e", desc = "Open Diagnostic Window" },
+    e = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Open Diagnostic Window" },
 
     -- LSP group
-    { "<leader>l", group = "LSP" },
-    { "<leader>lD", desc = "Declaration" },
-    { "<leader>ld", desc = "Definition" },
-    { "<leader>lk", desc = "Hover" },
+    l = {
+        name = "LSP",
+        D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Go to Declaration" },
+        d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Go to Definition" },
+        k = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
+    },
 
     -- NvimTree group
-    { "<leader>t", group = "NvimTree" },
-    { "<leader>tt", desc = "Tree Toggle" },
-    { "<leader>tf", desc = "Tree Focus" },
+    t = {
+        name = "NvimTree",
+        t = { "<cmd>NvimTreeToggle<cr>", "Tree Toggle" },
+        f = { "<cmd>NvimTreeFocus<cr>", "Tree Focus" },
+    },
 
     -- TodoList group
-    { "<leader>n", group = "TodoList" },
-    { "<leader>nl", desc = "Open List" },
+    n = {
+        name = "TodoList",
+        l = { "<cmd>TodoListOpen<cr>", "Open List" },
+    },
 
     -- Terminal
-    { "<leader>s", desc = "Open Terminal" },
+    s = { "<cmd>ToggleTerm<cr>", "Open Terminal" },
 
     -- Ruff
-    { "<leader>r", desc = "Ruff" },
+    r = { "<cmd>Ruff<cr>", "Run Ruff" },
 
     -- Color Schemes group
-    { "<leader>c", group = "Color Schemes" },
-    { "<leader>cs", desc = "Open" },
-})
+    c = {
+        name = "Color Schemes",
+        s = { "<cmd>ColorSchemePicker<cr>", "Open Color Scheme Picker" },
+    },
+}, { prefix = "<leader>" }) -- Set global prefix
