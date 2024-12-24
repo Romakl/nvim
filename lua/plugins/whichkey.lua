@@ -1,56 +1,36 @@
-local wk = require("which-key")
+local keymap = vim.keymap.set
 
-wk.register({
-    -- Find group
-    f = {
-        name = "Find", -- Group name
-        f = { "<cmd>Telescope find_files<cr>", "Find File" },
-        t = { "<cmd>Telescope live_grep<cr>", "Find Text" },
-        b = { "<cmd>Telescope buffers<cr>", "Find Buffer" },
-        h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-    },
+-- Find group
+keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find File" })
+keymap("n", "<leader>ft", "<cmd>Telescope live_grep<cr>", { desc = "Find Text" })
+keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find Buffer" })
+keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Find Help" })
 
-    -- Git group
-    g = {
-        name = "Git",
-        b = { "<cmd>GitBranches<cr>", "Open Branches" },
-        c = { "<cmd>GitCommits<cr>", "Open Commits" },
-        s = { "<cmd>GitStatus<cr>", "Open Status" },
-    },
+-- Git group
+keymap("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", { desc = "Open Branches" })
+keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", { desc = "Open Commits" })
+keymap("n", "<leader>gs", "<cmd>Telescope git_status<cr>", { desc = "Open Status" })
 
-    -- Diagnostics
-    e = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Open Diagnostic Window" },
+-- Open diagnostic window
+keymap("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open Diagnostic Window" })
 
-    -- LSP group
-    l = {
-        name = "LSP",
-        D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Go to Declaration" },
-        d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Go to Definition" },
-        k = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
-    },
+-- LSP group
+keymap("n", "<leader>lD", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
+keymap("n", "<leader>ld", vim.lsp.buf.definition, { desc = "Go to Definition" })
+keymap("n", "<leader>lk", vim.lsp.buf.hover, { desc = "Hover Documentation" })
 
-    -- NvimTree group
-    t = {
-        name = "NvimTree",
-        t = { "<cmd>NvimTreeToggle<cr>", "Tree Toggle" },
-        f = { "<cmd>NvimTreeFocus<cr>", "Tree Focus" },
-    },
+-- NvimTree group
+keymap("n", "<leader>tt", "<cmd>NvimTreeToggle<cr>", { desc = "Tree Toggle" })
+keymap("n", "<leader>tf", "<cmd>NvimTreeFocus<cr>", { desc = "Tree Focus" })
 
-    -- TodoList group
-    n = {
-        name = "TodoList",
-        l = { "<cmd>TodoListOpen<cr>", "Open List" },
-    },
+-- TodoList group
+keymap("n", "<leader>nl", "<cmd>TodoQuickFix<cr>", { desc = "Open Todo List" })
 
-    -- Terminal
-    s = { "<cmd>ToggleTerm<cr>", "Open Terminal" },
+-- Open terminal
+keymap("n", "<leader>s", "<cmd>ToggleTerm<cr>", { desc = "Open Terminal" })
 
-    -- Ruff
-    r = { "<cmd>Ruff<cr>", "Run Ruff" },
+-- Run Ruff linter
+keymap("n", "<leader>r", "<cmd>Ruff<cr>", { desc = "Run Ruff" })
 
-    -- Color Schemes group
-    c = {
-        name = "Color Schemes",
-        s = { "<cmd>ColorSchemePicker<cr>", "Open Color Scheme Picker" },
-    },
-}, { prefix = "<leader>" }) -- Set global prefix
+-- Color Schemes group
+keymap("n", "<leader>cs", "<cmd>Telescope colorscheme<cr>", { desc = "Open Color Schemes" })
