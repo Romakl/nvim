@@ -2,7 +2,7 @@ local keymap = vim.keymap.set
 
 -- Find group
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find File" })
-keymap("n", "<leader>ft", "<cmd>Telescope live_grep<cr>", { desc = "Find Text" })
+keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Find Text" })
 keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find Buffer" })
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Find Help" })
 
